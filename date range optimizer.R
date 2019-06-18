@@ -45,7 +45,6 @@ optimized <- matrix(nrow = length(dt_cpp_table$merchant_id), ncol = 3)
 
 num_merchants <- length(dt_cpp_table$merchant_id)
 
-i = 71
 
 ### Initiate for loop
 
@@ -123,6 +122,5 @@ for(i in 1:num_merchants){
 
 
 
-q
 
 
