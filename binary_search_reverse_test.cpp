@@ -98,6 +98,17 @@ CharacterVector binary_search_reverse(CharacterVector cards, CharacterVector dat
         opt_dates.push_front(dates[mid]);
           
         Rcout << "Start Date Value is " << dates[mid] << "\n";
+        
+        //if ncards == 2, then upper bound is mid + 1, push back and return data
+        if(n_cards == 2){
+          
+          opt_dates.push_back(dates[mid+1]);
+          
+          Rcout << "End Date Value is " << dates[mid+1] << "\n";
+          
+          return(opt_dates);
+          
+        }
 
         // subset data for next loop iteration
         cards_sub = cards_loop;

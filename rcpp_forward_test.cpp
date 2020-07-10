@@ -27,6 +27,9 @@ CharacterVector binary_search(CharacterVector cards, CharacterVector dates){
   // after first loop, subset data with found max date
   CharacterVector cards_sub;
   CharacterVector dates_sub;
+  
+  Environment base = Environment("package:base");
+  Function readline = base["readline"];
 
 
   // set variables for loop
@@ -78,8 +81,6 @@ CharacterVector binary_search(CharacterVector cards, CharacterVector dates){
 
   int n_txn_m1 = n_txns - 1;
 
-  Rcout << "Unique N Check: " << unique_n(cards[Range(0, 33)]) << "\n";
-
   Rcout << "range Check: " << Range(0, n_txn_m1).get_end() << "\n";
 
   CharacterVector cards_end_m1 = cards[Range(0, n_txn_m1)];
@@ -121,8 +122,17 @@ CharacterVector binary_search(CharacterVector cards, CharacterVector dates){
         opt_dates.push_back(dates[mid]);
 
         Rcout << "End Date Value is " << dates[mid] << "\n";
-
-
+        
+        //if ncards == 2, then lower bound is mid - 1, push front and return data
+        if(n_cards == 2){
+          
+          opt_dates.push_front(dates[mid-1]);
+          
+          Rcout << "Start Date Value is " << dates[mid-1] << "\n";
+          
+          return(opt_dates);
+          
+        }
 
         // subset data for next loop iteration
         cards_sub = cards_loop;
@@ -146,6 +156,10 @@ CharacterVector binary_search(CharacterVector cards, CharacterVector dates){
     }
 
   }
+  
+  
+
+  
   
 
   Rcout << "Past End Point Search if else block" << "\n";
@@ -199,6 +213,8 @@ CharacterVector binary_search(CharacterVector cards, CharacterVector dates){
       Rcout << "uniquen cards loop next " << unique_n(cards_loop_next) << "\n";
       
       Rcout << "Made it past subsetting \n";
+      
+      readline("");
 
       if (  unique_n(cards_loop) == n_cards  &&
             unique_n(cards_loop_next) == n_cards - 1){

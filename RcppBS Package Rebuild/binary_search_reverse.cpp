@@ -76,6 +76,15 @@ CharacterVector binary_search_reverse(CharacterVector cards, CharacterVector dat
             unique_N(cards_loop_next) == n_cards - 1){
 
         opt_dates.push_front(dates[mid]);
+        
+        //if ncards == 2, then upper bound is mid + 1, push back and return data
+        if(n_cards == 2){
+          
+          opt_dates.push_back(dates[mid+1]);
+          
+          return(opt_dates);
+          
+        }
 
         // subset data for next loop iteration
         cards_sub = cards_loop;

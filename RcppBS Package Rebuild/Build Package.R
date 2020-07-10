@@ -1,5 +1,5 @@
 library(Rcpp)
-
+library(RcppBinarySearch)
 
 
 Rcpp.package.skeleton("RcppBinarySearch", example_code = FALSE,
@@ -8,7 +8,18 @@ Rcpp.package.skeleton("RcppBinarySearch", example_code = FALSE,
 
 Rcpp::compileAttributes("RcppBinarySearch")
 
-## will need to restart R session
+## will need to restart R session - need to grab package from library
 install.packages("RcppBinarySearch", 
                  repos = NULL, 
                  type = "source")
+
+RcppBinarySearch::binary_search(
+  
+)
+
+
+library(data.table)
+test_dat <- fread("E:/Projects/RCPP-Binary-Search-Package/baddata.csv")
+
+
+RcppBinarySearch::binary_search(test_dat$cid, test_dat$Date)
