@@ -1,13 +1,13 @@
 Package: RcppBinarySearch
 Type: Package
-Title: What the Package Does in One 'Title Case' Line
-Version: 1.0
+Title: Rcpp Implementation of Binary Search
+Version: 1.0.3
 Date: 2020-07-10
 Author: Your Name
-Maintainer: Your Name <your@email.com>
-Description: One paragraph description of what the package does as one or more full sentences.
+Maintainer: Duncan Munslow <dmunslow11@gmail.com>
+Description: Uses binary search algorithm to find optimal date ranges for groups of cards in a CPP search.
 License: GPL (>= 2)
 Imports: Rcpp (>= 1.0.5)
 LinkingTo: Rcpp
-Built: R 3.6.2; x86_64-w64-mingw32; 2020-07-10 17:56:11 UTC; windows
+Built: R 3.6.2; x86_64-w64-mingw32; 2020-07-10 20:06:14 UTC; windows
 Archs: i386, x64

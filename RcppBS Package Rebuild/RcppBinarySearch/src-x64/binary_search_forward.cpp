@@ -87,7 +87,16 @@ CharacterVector binary_search(CharacterVector cards, CharacterVector dates){
            unique_n(cards_loop_next) == n_cards - 1){
 
         opt_dates.push_back(dates[mid]);
-
+        
+        //if ncards == 2, then lower bound is mid - 1, push front and return data
+        if(n_cards == 2){
+          
+          opt_dates.push_front(dates[mid-1]);
+          
+          return(opt_dates);
+          
+        }
+        
         // subset data for next loop iteration
         cards_sub = cards_loop;
         dates_sub = dates[Range(0, mid)];
