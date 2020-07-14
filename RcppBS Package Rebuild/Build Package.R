@@ -11,7 +11,8 @@ Rcpp::compileAttributes("RcppBinarySearch")
 ## will need to restart R session - need to grab package from library
 install.packages("RcppBinarySearch", 
                  repos = NULL, 
-                 type = "source")
+                 type = "source",
+                 destdir = "E:/Projects/RCPP-Binary-Search-Package/RcppBS Package Rebuild/Built Package")
 
 RcppBinarySearch::binary_search(
   
