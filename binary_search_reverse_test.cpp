@@ -84,6 +84,8 @@ CharacterVector binary_search_reverse(CharacterVector cards, CharacterVector dat
     while(lo <= hi){
         
       Rcout << "in while loop \n";
+      
+      while_i++;
 
       // integer division returns quotient in c++
       mid = lo + (hi- lo) / 2;
@@ -151,6 +153,7 @@ CharacterVector binary_search_reverse(CharacterVector cards, CharacterVector dat
   
   Rcout << "n_cards is " << n_cards << "\n";
 
+  while_i = 0;
   
   CharacterVector cards_sub_m1 =  cards_sub[Range(0, (hi - 1))];
   
@@ -170,6 +173,8 @@ CharacterVector binary_search_reverse(CharacterVector cards, CharacterVector dat
 
       // integer division returns quotient in c++
       mid = lo + (hi - lo) / 2;
+      
+      Rcout << "Mid Value " << while_i << " is " << mid << "\n";
 
       cards_loop = cards_sub[Range(0, mid)];
       cards_loop_next = cards_sub[Range(0, (mid - 1))];
@@ -184,9 +189,23 @@ CharacterVector binary_search_reverse(CharacterVector cards, CharacterVector dat
       } else if (unique_N(cards_loop) < n_cards){
 
         lo = mid + 1;
+        
+        Rcout << "New Low Value " << while_i << " is " << lo << "\n";
       } else {
 
         hi = mid - 1;
+        
+        Rcout << "New Hi Value " << while_i << " is " << hi << "\n";
+        
+        if(n_cards == 2 && hi ==1){
+          
+          opt_dates.push_front(dates[0]);
+          opt_dates.push_back(dates[1]);
+          
+          return(opt_dates);
+          
+        }
+    
       }
     }
 

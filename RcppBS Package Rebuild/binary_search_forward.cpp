@@ -110,6 +110,16 @@ CharacterVector binary_search(CharacterVector cards, CharacterVector dates){
       } else {
 
         hi = mid - 1;
+        
+        // check if new hi value is 1 & ncard == 2, then push 
+        if(n_cards == 2 && hi ==1){
+          
+          opt_dates.push_front(dates[0]);
+          opt_dates.push_back(dates[1]);
+          
+          return(opt_dates);
+          
+        }
 
       }
 
